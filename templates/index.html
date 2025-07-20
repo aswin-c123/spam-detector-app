@@ -1,0 +1,23 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spam Detector</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Spam Mail Detector</h1>
+        <form method="POST" action="/predict">
+            <textarea name="message" placeholder="Enter your email message here..." required></textarea>
+            <button type="submit">Check</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result">
+                Result: {{ prediction }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
